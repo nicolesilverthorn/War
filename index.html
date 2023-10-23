@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>	
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" contingent="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>War Card Game</title>		
+		<script src='jquery3.1.1.min.js'></script>
+		<script src="bootstrap.min.js"></script>
+		<script src='game.js'></script>
+		<link rel="stylesheet" href="bootstrap.min.css" />		
+		<link rel="stylesheet" type="text/css" href="game.css" />
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+	</head>
+
+	<body>
+		<div class='jumbotron' id='jumbotron'>
+			<h1 class='animated flipInX'>WAR!</h1>
+			<h3 class='animated lightSpeedIn'>The card game.</h3>
+		</div>
+
+		<div id='header' style="display: none;">
+			<h3>WAR!</h3>
+		</div>
+
+		<div id="boardwrap">
+
+			<div id='howToPlay'>
+				<!--<h2><b>HOW TO PLAY:</b></h2>-->
+
+				<div id="howTo">					
+					<div><b>GAME SETUP:</b>
+						<br>A deck of cards is shuffled and split between the player and the computer, face down.
+						<br><br><b>GAME PLAY:</b>
+						<br>When DEAL is clicked, the top card of each player's deck is flipped over and compared. The player with the highest card wins both cards. In the event of a tie, there will be <b>WAR!</b>
+					</div>
+					<div><b>WAR:</b>
+						<br>Three cards will be drawn from each deck (if available - only as many will be drawn so that the player has one card left to flip) and the fourth (or last) card from each will be compared. The player with the highest card wins all "war" cards.
+						<br><br><b>GAME END:</b>
+						<br>The game ends when one player holds all of the cards.
+					</div>					
+				</div>
+
+				<div><button id='playButton' onclick="play()">PLAY!</button></div>
+			</div>
+
+			<div id="warAnimation" class="war"><div id="warText">WAR!!!</div></div>
+
+			<div id="warArea" style='display: none;'>
+				<div class='playerWarFinal'></div>
+				<div class='playerWarCards'></div>
+				<div class='compWarCards'></div>
+				<div class='compWarFinal'></div>
+			</div>
+			
+			<div id='gameboard'>
+				<div id='desktop' class="game animated fadeInUp">
+					
+					<div class="gameHeader">
+						<div class="playCount"></div>
+						<div class="result"></div>
+						<div class="compCount"></div>
+					</div>
+					
+					<div class="gameTable">
+						<div class="playerDeck"><img src="img/cardback.jpg"></div>
+						<div class="playerCard"></div>
+						<div class="middleGround">
+							<button class="deal" onclick="deal()">DEAL</button><br>
+							<button class="newGame" onclick="location.reload()">NEW GAME</button>
+						</div>
+						<div class="compCard"></div>
+						<div class="compDeck"><img src="img/cardback.jpg"></div>
+					</div>
+				</div>
+
+				<div id='mobile' class="game animated fadeInLeft">
+					<div class="playCount"></div><br>
+					<div class="playerArea">
+						<div class="playerDeck"><img src="img/cardback.jpg"></div>
+						<div class="playerCard"></div>
+					</div>
+
+					<div class="result"></div><br>
+					<div class="middleGround">
+						<button class="deal" onclick="deal()">DEAL</button><br>
+						<button class="newGame" onclick="location.reload()">NEW GAME</button>
+					</div><br>
+					
+					<div class="compCount"></div>
+					<div class="compArea">
+						<div class="compDeck"><img src="img/cardback.jpg"></div>
+						<div class="compCard"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
